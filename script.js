@@ -18,6 +18,8 @@ function getHumanChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    let humanSelection;
+    let computerSelection;
 
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.toLowerCase();
@@ -63,13 +65,36 @@ function playGame() {
         }
     }
 
+    /*
     for (let index = 0; index < 5; index++) {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
         console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
     }
+        */
 
+    const btn1 = document.querySelector("#rock");
+    btn1.addEventListener("click", () => {
+        humanSelection = "rock";
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
+    })
+    const btn2 = document.querySelector("#paper");
+    btn1.addEventListener("click", () => {
+        humanSelection = "paper";
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
+    })
+    const btn3 = document.querySelector("#scissors");
+    btn1.addEventListener("click", () => {
+        humanSelection = "scissors";
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
+    })
 }
 
 playGame();
