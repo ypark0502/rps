@@ -22,7 +22,7 @@ function playGame() {
     let computerSelection;
 
     function playRound(humanChoice, computerChoice) {
-        humanChoice = humanChoice.toLowerCase();
+        //humanChoice = humanChoice.toLowerCase();
         switch (humanChoice) {
             case "rock":
                 if (computerChoice === "rock") {
@@ -82,14 +82,14 @@ function playGame() {
         console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
     })
     const btn2 = document.querySelector("#paper");
-    btn1.addEventListener("click", () => {
+    btn2.addEventListener("click", () => {
         humanSelection = "paper";
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
         console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
     })
     const btn3 = document.querySelector("#scissors");
-    btn1.addEventListener("click", () => {
+    btn3.addEventListener("click", () => {
         humanSelection = "scissors";
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
