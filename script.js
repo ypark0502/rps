@@ -22,7 +22,13 @@ function playGame() {
     let computerSelection;
 
     function playRound(humanChoice, computerChoice) {
-        //humanChoice = humanChoice.toLowerCase();
+        //displays the winning announcement once a player has reached 5 points
+        if (humanScore >= 5) {
+            div.innerText = `Human has ${humanScore} points, Computer has ${computerScore} points, Human wins!`;
+        } else if (computerScore >= 5) {
+            div.innerText = `Human has ${humanScore} points, Computer has ${computerScore} points, Computer wins!`;
+        }
+
         switch (humanChoice) {
             case "rock":
                 if (computerChoice === "rock") {
@@ -65,36 +71,33 @@ function playGame() {
         }
     }
 
-    /*
-    for (let index = 0; index < 5; index++) {
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
-    }
-        */
+    const div = document.createElement("div");
+    const body = document.querySelector("body");
 
     const btn1 = document.querySelector("#rock");
     btn1.addEventListener("click", () => {
         humanSelection = "rock";
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-        console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
+        div.innerText = `Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`;
     })
     const btn2 = document.querySelector("#paper");
     btn2.addEventListener("click", () => {
         humanSelection = "paper";
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-        console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
+        div.innerText = `Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`;
     })
     const btn3 = document.querySelector("#scissors");
     btn3.addEventListener("click", () => {
         humanSelection = "scissors";
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-        console.log(`Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`)
+        div.innerText = `Current Score: Human has ${humanScore} points, Computer has ${computerScore} points`;
     })
+
+    body.appendChild(div);
+
 }
 
 playGame();
